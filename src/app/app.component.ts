@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'project-hunt';
+  names = ['Example 1', 'Example 2', 'Example 3', 'Example 4', 'Example 5']
 }
