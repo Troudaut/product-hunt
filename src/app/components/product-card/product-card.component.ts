@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductHuntPost } from '../../domain/product-hunt-post.model';
 
 @Component({
   selector: 'app-product-card',
@@ -8,9 +9,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductCardComponent implements OnInit {
 
   @Input()
-  name?: string;
+  post?: ProductHuntPost;
 
   ngOnInit(): void {
-    console.log(this.name);
+    console.log(this.post?.name);
   }
 }
