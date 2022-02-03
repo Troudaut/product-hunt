@@ -1,4 +1,5 @@
 <div class="container is-fluid-mobile pt-4">
+  <app-date-picker (changeDateEvent)="changeDateEvent($event)"></app-date-picker>
   <div class="row columns is-multiline">
     <div *ngFor="let post of posts$ | async" class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
       <app-product-card [post]="post"></app-product-card>

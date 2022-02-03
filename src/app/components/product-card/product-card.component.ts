@@ -12,6 +12,5 @@ export class ProductCardComponent implements OnInit {
   post?: ProductHuntPost;
 
   ngOnInit(): void {
-    console.log(this.post?.name);
   }
 }
