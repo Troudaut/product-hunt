@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { catchError, Observable, ObservableInput, of } from "rxjs";
+import { Observable } from "rxjs";
 import { ProductHuntPost } from "../domain/product-hunt-post.model";
 
 @Injectable({

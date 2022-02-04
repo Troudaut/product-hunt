@@ -11,6 +11,7 @@ const MS_IN_MINUTES = 60_000;
 export class DatePickerComponent {
 
   @Output() changeDateEvent = new EventEmitter<string>();
+  today = new Date();
 
   onChangedDate(event: MatDatepickerInputEvent<Date>) {
     const date = event.value;
