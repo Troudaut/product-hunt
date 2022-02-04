@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from "rxjs";
+import { Observable, tap } from "rxjs";
 import { ProductHuntPost } from "../domain/product-hunt-post.model";
 
 @Injectable({
@@ -14,7 +14,6 @@ export class PostsService {
 
   retrievePostsByDay(day?: string): Observable<ProductHuntPost[]> {
     const options = day ? { params: new HttpParams().set('day', day) } : {};
-
     return this.httpClient.get<ProductHuntPost[]>(`/api/v1/posts`, options);
   }
 

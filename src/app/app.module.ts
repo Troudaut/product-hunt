@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 import { ContainerComponent } from './components/container/container.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DatePickerModule } from './date-picker/date-picker.module';
+import { DatePickerModule } from './components/date-picker/date-picker.module';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -26,7 +26,8 @@ import { DatePickerModule } from './date-picker/date-picker.module';
     BrowserAnimationsModule,
     HttpClientModule,
     MatFormFieldModule,
-    DatePickerModule
+    DatePickerModule,
+    ToastrModule.forRoot(),
   ],
   exports: [
     MatFormFieldModule

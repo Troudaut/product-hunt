@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { map, merge, Observable, of, Subject, switchMap, timer } from 'rxjs';
+import { catchError, map, merge, Observable, of, Subject, switchMap, tap, timer } from 'rxjs';
 import { ProductHuntPost } from '../../domain/product-hunt-post.model';
+import { PopupService } from '../../services/common/popup.service';
 import { PostsService } from '../../services/products.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class ContainerComponent {
   dateSubject = new Subject<string>();
 
   constructor(
-    private postsService: PostsService
+    private postsService: PostsService,
+    private popupService: PopupService,
   ) { 
     this.posts$ = merge(
       timer(0).pipe(
@@ -22,7 +24,13 @@ export class ContainerComponent {
       ),
       this.dateSubject.asObservable()
     ).pipe(
-      switchMap(day => this.postsService.retrievePostsByDay(day))
+      switchMap(day => this.postsService.retrievePostsByDay(day).pipe(
+        catchError(() => {
+          this.popupService.showError();
+          return of([]);
+        })
+      )
+      ),
     );
   }
 

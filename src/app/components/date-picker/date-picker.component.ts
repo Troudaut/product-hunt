@@ -15,7 +15,6 @@ export class DatePickerComponent {
 
   onChangedDate(event: MatDatepickerInputEvent<Date>) {
     const date = event.value;
-    console.log(date, date?.toLocaleDateString());
     if (date) {
       this.changeDateEvent.emit(this.formatString(date));
     }
